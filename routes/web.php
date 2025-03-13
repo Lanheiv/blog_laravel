@@ -7,4 +7,4 @@ use App\Http\Controllers\ArticleController;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/article', [ArticleController::class, "list"]);
+Route::get('/article', [ArticleController::class, "index"]);

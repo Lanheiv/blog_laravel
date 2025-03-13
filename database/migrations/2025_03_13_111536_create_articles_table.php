@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $talbe->string("title", 20);
-            $table->longText("content");
-            $talbe->date("crate_date");
+            $table->char('title', 20);
+            $table->string('content');
+            $table->date('create_date');
             $table->date('update_date');
-            $table->number("category_id");
+            $table->bigInteger('category_id');        
         });
     }
 
