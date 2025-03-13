@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>
-        Raksti
+        Skatīt rakstu
     </x-slot:title>
 
     <h1>Raksti</h1>

@@ -1,4 +1,5 @@
 <head>
-    <a href="/">sākums</a>
-    <a href="/article">Ieraksts</a>
+    <a href="/">Sākums</a>
+    <a href="/article">Raksts</a>
+    <a href="/article/create">Izveidot</a>
 </head>
