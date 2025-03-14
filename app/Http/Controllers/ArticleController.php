@@ -12,13 +12,22 @@ class ArticleController extends Controller
         $article = Article::all();
         return view("article.index", compact("article"));
     }
-    public function create()
-    {
+    public function create() {
         return view("article.create");
     }
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $validated = $request->validate([
+            "title" => ["required", "max:20"],
+            "content" => ["required"],
+            "category_id" => ["nullable", "integer"]
+        ]);
+        Article::create([
+            "title" => $validated["title"],
+            "content" => $validated["content"],
+            "category_id" => $validated["category_id"] ?? 0
+        ]);
+
+        return redirect("/article");
     }
     public function show(c $c)
     {
@@ -37,3 +46,4 @@ class ArticleController extends Controller
         //
     }
 }
+

@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->char('title', 20);
             $table->string('content');
-            $table->date('create_date');
-            $table->date('update_date');
             $table->bigInteger('category_id');        
+        });
+        Schema::table('articles', function (Blueprint $table) {
+            $table->timestamps();
         });
     }
 
@@ -27,5 +28,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('articles');
+        
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropTimestamps();
+        });
     }
 };
