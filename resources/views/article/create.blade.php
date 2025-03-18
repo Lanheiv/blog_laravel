@@ -16,6 +16,14 @@
             <p>Raksts:</p>
             <input name="content" placeholder="Šeti ievadiet rakstu" required />
         </label>
+        <label>
+            <select name="category_id">
+                <option value="0">--Tukšums--</option>
+                @foreach($categories as $categories)
+                    <option value=" {{ $categories->id }} ">{{ $categories->category_name }}</option>
+                @endforeach
+            </select>
+        </label>
     
         <button>Saglabāt</button> 
     </form>

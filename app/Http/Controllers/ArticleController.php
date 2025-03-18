@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categories;
 use App\Models\Article;
 
 class ArticleController extends Controller
@@ -13,7 +14,8 @@ class ArticleController extends Controller
         return view("article.index", compact("article"));
     }
     public function create() {
-        return view("article.create");
+        $categories = Categories::all();
+        return view("article.create", compact("categories"));
     }
     public function store(Request $request) {
         $validated = $request->validate([
