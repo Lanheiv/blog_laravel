@@ -28,6 +28,9 @@ class CategoriesController extends Controller
             "updated_at" => now()
         ]);
 
-        return redirect("/article");
+        return redirect("/categorie");
+    }
+    public function show(Categories $categorie) {
+        return view("categories.show", compact("categorie"));
     }
 }

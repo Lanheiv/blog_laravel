@@ -7,7 +7,7 @@
 
     <ul>
         @foreach($article as $article)
-            <li> {{ $article->title }} </li>
+            <li><a href="/article/{{ $article->id }}"> {{ $article->title }} </a></li>
         @endforeach
     </ul>
 </x-layout>

@@ -29,9 +29,8 @@ class ArticleController extends Controller
 
         return redirect("/article");
     }
-    public function show(c $c)
-    {
-        //
+    public function show(Article $article) {
+        return view("article.show", compact("article"));
     }
     public function edit(c $c)
     {
