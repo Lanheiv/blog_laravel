@@ -7,6 +7,13 @@
     <p>{{ $article->content }}</p>
 
     <a href="/article/{{ $article->id }}/edite">Rediģēt</a>
-    <a href="/article/{{ $article->id }}/delete">Dzēst</a>
+
+    <form method="POST" action="/article/{{ $article->id }}">
+        @csrf
+        @method('delete')
+
+        <button>Dzēst</button>
+    </form>
+    
 
 </x-layout>

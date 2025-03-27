@@ -12,6 +12,7 @@ Route::get('/', function () {
 // Article sadaļa
 Route::post('/article', [ArticleController::class, 'store']);
 Route::put('/article/{article}', [ArticleController::class, 'update']);
+Route::delete('/article/{article}', [ArticleController::class, 'destroy']);
 
 Route::get('/article', [ArticleController::class, "index"]);
 Route::get('/article/create', [ArticleController::class, "create"]);

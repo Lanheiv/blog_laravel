@@ -39,13 +39,24 @@ class ArticleController extends Controller
 
         return view("article.edit", compact("article"), compact("categories"));
     }
-    public function update(Request $request, c $c)
-    {
-        //
+    public function update(Request $request, Article $article) {
+        $validated = $request->validate([
+            "title" => ["required", "max:20"],
+            "content" => ["required"],
+            "category_id" => ["required"]
+        ]);
+        $article->update([
+            "title" => $validated["title"],
+            "content" => $validated["content"],
+            "category_id" => $validated["category_id"]
+        ]);
+
+        return view("article.show", compact("article"));
     }
-    public function destroy(c $c)
-    {
-        //
+    public function destroy(Article $article) {
+        $article->delete();
+
+        return redirect("/article");
     }
 }
 

@@ -29,7 +29,10 @@
             <select name="category_id">
                 <option value="0">--Tukšums--</option>
                 @foreach($categories as $categories)
-                    <option @if($categories->id == $article->id ) {{"selected"}} @endif value="{{ $categories->id }}">{{ $categories->category_name }}</option>
+                    <option value="{{ $categories->id }}"
+                        {{ $categories->id == $article->category_id ? 'selected' : '' }}>
+                        {{ $categories->category_name }}
+                    </option>
                 @endforeach
             </select>
         </label>
