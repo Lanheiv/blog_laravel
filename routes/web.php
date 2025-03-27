@@ -16,15 +16,15 @@ Route::delete('/article/{article}', [ArticleController::class, 'destroy']);
 
 Route::get('/article', [ArticleController::class, "index"]);
 Route::get('/article/create', [ArticleController::class, "create"]);
-
 Route::get('/article/{article}', [ArticleController::class, 'show']);
-
 Route::get('/article/{article}/edite', [ArticleController::class, 'edit']);
 
 // Categoris sadaļa
 Route::post('/categorie', [CategoriesController::class, 'store']);
+Route::put('/categorie/{categorie}', [CategoriesController::class, 'update']);
+Route::delete('/categorie/{categorie}', [CategoriesController::class, 'destroy']);
 
 Route::get('/categorie', [CategoriesController::class, "index"]);
 Route::get('/categorie/create', [CategoriesController::class, "create"]);
-
 Route::get('/categorie/{categorie}', [CategoriesController::class, 'show']);
+Route::get('/categorie/{categorie}/edite', [CategoriesController::class, 'edit']);

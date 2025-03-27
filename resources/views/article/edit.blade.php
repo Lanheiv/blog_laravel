@@ -13,7 +13,7 @@
             Virsraksts:
             <input type="text" name="title" value="{{ $article->title }}">
         </label>
-        @error("content")
+        @error("title")
             <p>{{ $message }}</p>
         @enderror
 
@@ -21,7 +21,7 @@
             Virsraksts:
             <input type="text" name="content" value="{{ $article->content }}">
         </label>
-        @error("title")
+        @error("content")
             <p>{{ $message }}</p>
         @enderror
 

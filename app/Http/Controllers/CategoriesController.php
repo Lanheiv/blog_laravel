@@ -33,4 +33,25 @@ class CategoriesController extends Controller
     public function show(Categories $categorie) {
         return view("categories.show", compact("categorie"));
     }
+    public function edit(Categories $categorie) {
+        return view("categories.edit", compact("categorie"));
+    }
+    public function update(Request $request, Categories $categorie) {
+        $validated = $request->validate([
+            "category_name" => ["required"],
+            "details" => ["required"]
+        ]);
+
+        $categorie->update([
+            "category_name" => $validated["category_name"],
+            "details" => $validated["details"]
+        ]);
+
+        return view("categories.show", compact("categorie"));
+    }
+    public function destroy(Categories $categorie) {
+        $categorie->delete();
+
+        return redirect("/categorie");
+    }
 }
