@@ -14,6 +14,4 @@
 
         <button>Dzēst</button>
     </form>
-    
-
 </x-layout>
