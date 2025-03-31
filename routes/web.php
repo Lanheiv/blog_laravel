@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CommentController;
+
 
 
 Route::get('/', function () {
@@ -28,3 +31,6 @@ Route::get('/categorie', [CategoriesController::class, "index"]);
 Route::get('/categorie/create', [CategoriesController::class, "create"]);
 Route::get('/categorie/{categorie}', [CategoriesController::class, 'show']);
 Route::get('/categorie/{categorie}/edite', [CategoriesController::class, 'edit']);
+
+// Komentāru sadaļa
+Route::post('/comments/create', [CommentController::class, 'store']);

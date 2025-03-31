@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Categories;
 use App\Models\Article;
+use App\Models\User;
+
 
 class ArticleController extends Controller
 {
@@ -32,7 +35,9 @@ class ArticleController extends Controller
         return redirect("/article");
     }
     public function show(Article $article) {
-        return view("article.show", compact("article"));
+        $user = User::all();
+
+        return view("article.show", compact("article"), compact("user"));
     }
     public function edit(Article $article) {
         $categories = Categories::all();

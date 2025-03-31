@@ -13,18 +13,13 @@ return new class extends Migration
             $table->bigInteger('articles_id');
             $table->Integer('user_id');
             $table->string('comment');
-        });
-        Schema::table('comments', function (Blueprint $table) {
-            $table->timestamps(); 
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
     public function down(): void
     {
         Schema::dropIfExists('comments');
-
-        Schema::table('comments', function (Blueprint $table) {
-            $table->dropTimestamps();
-        });
     }
 };

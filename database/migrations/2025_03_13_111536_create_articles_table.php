@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->char('title', 20);
             $table->string('content');
-            $table->bigInteger('category_id');        
-        });
-        Schema::table('articles', function (Blueprint $table) {
-            $table->timestamps();
+            $table->bigInteger('category_id'); 
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();       
         });
     }
 
@@ -28,9 +27,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('articles');
-        
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropTimestamps();
-        });
     }
 };

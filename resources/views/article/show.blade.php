@@ -14,4 +14,36 @@
 
         <button>Dzēst</button>
     </form>
+
+    <!-- Komentāru daļa -->
+    <div>
+        <h3>Komentāri</h3>
+
+        <form method="POST" action="/comments/create">
+            @csrf
+
+            <label>
+                Komentārs:
+                <input type="text" name="comment">
+
+                @error("comment")
+                    <p>{{ $message }}</p>
+                @enderror
+            </label>
+            
+            <label>
+                Autors:
+                <select name="user">
+                    <option value="0">Anonīms</option>
+                    @foreach($user as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+            </label>
+
+            <input name="article_id" type="hidden" value="{{ $article->id }}">
+
+            <button>Saglabāt</button>
+        </form>
+    </div>
 </x-layout>

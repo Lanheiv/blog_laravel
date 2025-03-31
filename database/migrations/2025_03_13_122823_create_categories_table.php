@@ -15,10 +15,8 @@ return new class extends Migration
             $table->id();
             $table->char('category_name', 20);
             $table->string('details');
-        });
-        
-        Schema::table('categories', function (Blueprint $table) {
-            $table->timestamps();  // Adds 'created_at' and 'updated_at' columns
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -28,9 +26,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('categories');
-
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropTimestamps();
-        });
     }
 };
