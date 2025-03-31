@@ -3,6 +3,7 @@
         Skatīt {{ $article->title }}
     </x-slot:title>
 
+    <!-- Raksta sadaļa -->
     <h1>{{ $article->title }}</h1>
     <p>{{ $article->content }}</p>
 
@@ -15,9 +16,20 @@
         <button>Dzēst</button>
     </form>
 
+    <!-- Komentāru izvads -->
+    @if($comments->isNotEmpty())
+        <div>
+            <h3>Komentāri</h3>
+
+            @foreach($comments as $comments)
+                <p>{{ $comments->comment }}</p>
+            @endforeach
+        </div>
+    @endif
+
     <!-- Komentāru daļa -->
     <div>
-        <h3>Komentāri</h3>
+        <h3>Komentāra izveide</h3>
 
         <form method="POST" action="/comments/create">
             @csrf

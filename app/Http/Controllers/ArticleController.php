@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Categories;
 use App\Models\Article;
+use App\Models\Comment;
 use App\Models\User;
 
 
@@ -36,8 +37,9 @@ class ArticleController extends Controller
     }
     public function show(Article $article) {
         $user = User::all();
+        $comments = Comment::where('articles_id', $article->id)->get();
 
-        return view("article.show", compact("article"), compact("user"));
+        return view("article.show", compact("article", "user", "comments"));
     }
     public function edit(Article $article) {
         $categories = Categories::all();
