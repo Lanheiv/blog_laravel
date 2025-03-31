@@ -37,7 +37,7 @@ class ArticleController extends Controller
     }
     public function show(Article $article) {
         $user = User::all();
-        $comments = Comment::where('articles_id', $article->id)->get();
+        $comments = Comment::where('article_id', $article->id)->get();
 
         return view("article.show", compact("article", "user", "comments"));
     }
@@ -61,6 +61,7 @@ class ArticleController extends Controller
         return view("article.show", compact("article"));
     }
     public function destroy(Article $article) {
+        // Comment::where('article_id', $article->id)->delete();
         $article->delete();
 
         return redirect("/article");

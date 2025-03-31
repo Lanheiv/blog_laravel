@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('articles_id');
+            $table->foreignId('article_id')->constrained()->onDelete('cascade');
             $table->Integer('user_id');
             $table->string('comment');
             $table->timestamp('created_at')->useCurrent();

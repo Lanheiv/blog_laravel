@@ -15,10 +15,16 @@ class CommentController extends Controller
         ]);
         Comment::create([
             "comment" => $validated["comment"],
-            "articles_id" => $validated["article_id"],
+            "article_id" => $validated["article_id"],
             "user_id" => $validated["user"]
         ]);
 
         return redirect("/article/{$validated['article_id']}");
+    }
+    public function destroy(Comment $comment) {
+        $path = $comment["article_id"];
+        $comment->delete();
+
+        return redirect("/article/{$path}");
     }
 }

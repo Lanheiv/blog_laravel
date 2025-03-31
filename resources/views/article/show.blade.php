@@ -22,7 +22,17 @@
             <h3>Komentāri</h3>
 
             @foreach($comments as $comments)
+            <div>
                 <p>{{ $comments->comment }}</p>
+
+                <form method="POST" action="/comments/{{ $comments->id }}">
+                    @csrf
+                    @method('delete')
+
+                    <button>Dzēst</button>
+                </form>
+                <button>Rediģēt</button>
+            </div>
             @endforeach
         </div>
     @endif
@@ -31,7 +41,7 @@
     <div>
         <h3>Komentāra izveide</h3>
 
-        <form method="POST" action="/comments/create">
+        <form method="POST" action="/comments">
             @csrf
 
             <label>

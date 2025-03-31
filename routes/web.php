@@ -33,4 +33,6 @@ Route::get('/categorie/{categorie}', [CategoriesController::class, 'show']);
 Route::get('/categorie/{categorie}/edite', [CategoriesController::class, 'edit']);
 
 // Komentāru sadaļa
-Route::post('/comments/create', [CommentController::class, 'store']);
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
+Route::post('/comments', [CommentController::class, 'store']);
+
