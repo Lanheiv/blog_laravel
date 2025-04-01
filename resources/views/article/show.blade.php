@@ -7,7 +7,7 @@
     <h1>{{ $article->title }}</h1>
     <p>{{ $article->content }}</p>
 
-    <a href="/article/{{ $article->id }}/edite">Rediģēt</a>
+    <a href="/article/{{ $article->id }}/edit">Rediģēt</a>
 
     <form method="POST" action="/article/{{ $article->id }}">
         @csrf
@@ -31,7 +31,11 @@
 
                     <button>Dzēst</button>
                 </form>
-                <button>Rediģēt</button>
+                <form method="POST" action="/comments/{{ $comments->id }}/edite">
+                    @csrf
+
+                    <button>Rediģēt</button>
+                </form>
             </div>
             @endforeach
         </div>

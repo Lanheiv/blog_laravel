@@ -6,7 +6,7 @@
     <h1>{{ $categorie->category_name }}</h1>
     <p> {{ $categorie->details }} </p>
 
-    <a href="/categorie/{{ $categorie->id }}/edite">Rediģēt</a>
+    <a href="/categorie/{{ $categorie->id }}/edit">Rediģēt</a>
 
     <form method="POST" action="/categorie/{{ $categorie->id }}">
         @csrf

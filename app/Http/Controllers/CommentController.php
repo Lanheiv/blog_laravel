@@ -27,4 +27,7 @@ class CommentController extends Controller
 
         return redirect("/article/{$path}");
     }
+    public function edit() {
+        return view("comment.edit");
+    }
 }
